@@ -109,8 +109,8 @@ async function 启动传输管道(WS接口, TCP接口) {
           } else {
             return connect({ hostname: 访问地址, port: 访问端口 });
           }
-        } catch {
-          if (!启用反代功能) throw;
+        } catch (e) {
+          if (!启用反代功能) throw e;
           if (启用NAT64反代 && 识别地址类型 === 1) {
             return 创建NAT64连接(我的NAT64地址, 访问地址);
           } else {
